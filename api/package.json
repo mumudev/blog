@@ -1,0 +1,61 @@
+{
+  "name": "eggjs",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "add": "^2.0.6",
+    "axios": "^0.16.2",
+    "egg": "^1.6.1",
+    "egg-development-proxyworker": "^1.1.1",
+    "egg-logger": "^1.6.0",
+    "egg-mongoose": "^2.1.0",
+    "egg-redis": "^1.0.2",
+    "egg-session-redis": "^1.0.0",
+    "egg-tablestore": "^2.0.2",
+    "egg-validate": "^1.0.0",
+    "koa-cors": "^0.0.16",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "mongoose-paginate": "^5.0.3",
+    "query-mobile-phone-area": "^1.0.6",
+    "redis": "^2.7.1",
+    "yarn": "^0.27.5"
+  },
+  "devDependencies": {
+    "autod": "^2.8.0",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^3.4.0",
+    "egg-ci": "^1.7.0",
+    "egg-mock": "^3.12.1",
+    "eslint": "^4.0.0",
+    "eslint-config-egg": "^4.2.0",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "autod": "autod",
+    "lint": "eslint .",
+    "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "ci": "npm run lint && egg-bin pkgfiles --check && npm run cov",
+    "pkgfiles": "egg-bin pkgfiles"
+  },
+  "ci": {
+    "version": "6, 8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "files": [
+    "index.js"
+  ],
+  "author": "Mumudeveloper",
+  "license": "MIT"
+}
