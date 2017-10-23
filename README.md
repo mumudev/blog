@@ -130,3 +130,8 @@ yarn run publish
 亲情推荐：
 
 [egg-tablestore](https://github.com/mumudev/egg-tablestore)，阿里云的tablestore数据库在egg上的插件，为啥亲情推荐呢？因为是我写的, wo lianpi hou.
+
+
+## License
+
+[MIT](LICENSE)
