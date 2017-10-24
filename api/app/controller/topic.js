@@ -40,7 +40,7 @@ class Controller extends BaseController {
     const { ctx, service } = this;
     const id = ctx.params.id;
     let model = yield service.topic.getById(id);
-    if (model.owner !== ctx.user_id) {
+    if (model.owner._id.toString() !== ctx.user_id) {
       return ctx.fail(0);
     }
     yield service.topic.deleteById(id);

@@ -3,7 +3,7 @@
     <Card dis-hover style="height:100%; border:0;">
       <div slot="title" class="title">
         <Row gutter="20">
-          <Col span="18">
+          <Col span="17">
             <FormItem prop="title" style="margin-bottom:0px;">
               <Input id="title" v-model="topic.title" placeholder="请输入标题"></Input>
             </FormItem>
@@ -23,6 +23,11 @@
           <Col span="1">
             <FormItem style="margin-bottom:0px;">
               <Button type="error" style="width:100%" @click="cancel">取消</Button>
+            </FormItem>
+          </Col>
+          <Col span="1">
+            <FormItem style="margin-bottom:0px;">
+              <Button type="error" style="width:100%" @click="onDelete">删除</Button>
             </FormItem>
           </Col>
         </Row>
@@ -76,6 +81,20 @@ export default {
     },
     cancel() {
       this.$router.back();
+    },
+    onDelete() {
+      const self = this;
+      this.$Modal.confirm({
+        title: '删除话题',
+        okText: '确认',
+        content: `确认要删除《${self.topic.title}》吗？`,
+        cancelText: '取消',
+        async onOk() {
+          await self.$delete(`topic/${self.topic._id}`);
+          self.$router.push('/main');
+        },
+        onCancel() {},
+      });
     },
   },
 };
