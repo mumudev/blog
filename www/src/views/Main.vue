@@ -1,30 +1,44 @@
 <template>
   <div class="Main">
-    <Row :gutter="16">
-        <Col span="24">
-            <Card dis-hover>
-              <div slot="title" class="title">
-                  <RadioGroup v-model="tab" type="button">
-                    <Radio label="全部"></Radio>
-                    <!-- <Radio label="精华"></Radio> -->
-                    <Radio label="分享"></Radio>
-                    <Radio label="问答"></Radio>
-                    <Radio label="招聘"></Radio>
-                    <Radio label="求职"></Radio>
-                  </RadioGroup>
-                  <div class="public-btn">
-                    <Button class="" type="primary" v-if="user_status" @click="publicTopic">发布话题</Button>
-                  </div>
+    <Row :gutter="40">
+        <Col span="18">
+            <Card dis-hover style="margin-top:20px; border: 0;">
+              <RadioGroup v-model="tab" slot="title" type="button">
+                <Radio label="全部"></Radio>
+                <Radio label="分享"></Radio>
+                <Radio label="问答"></Radio>
+                <Radio label="招聘"></Radio>
+                <Radio label="求职"></Radio>
+              </RadioGroup>
+              <Button slot="extra" type="primary" v-if="user_status" @click="publicTopic">发布话题</Button>
+              <div class="container">
+                <Table :show-header="false" :columns="columns" :data="data"></Table>
+                <Page :total="page.total" :page-size="page.size" @on-change="changePage" show-total></Page>
               </div>
-              <Table :show-header="false" :columns="columns" :data="data"></Table>
-              <Page :total="page.total" :page-size="page.size" @on-change="changePage" show-total></Page>
             </Card>
         </Col>
-        <!-- <Col span="6">
-          <Card dis-hover>
-
+        <Col span="6">
+          <Card style="margin-top:20px;" dis-hover v-if="user_status">
+            <div slot="title">
+              个人信息
+            </div>
+            <p>欢迎您！{{session.username}}</p>
           </Card>
-        </Col> -->
+          <Card style="margin-top:20px;" dis-hover v-else>
+            <p>请登录</p>
+          </Card>
+           <Card style="margin-top:20px;" dis-hover>
+            <div slot="title">
+              社区信息
+            </div>
+            <Button type="text" @click="gotoGitHub">
+              <Icon type="social-github"></Icon> GitHub
+            </Button>
+            <Button type="text">
+              Q群：428812779
+            </Button>
+          </Card>
+        </Col>
     </Row>
   </div>
 </template>
@@ -142,6 +156,9 @@ export default {
     changePage(current) {
       this.page.current = current;
       this.getData();
+    },
+    gotoGitHub() {
+      window.open('https://github.com/mumudev/blog');
     },
     publicTopic() {
       this.$router.push('/add_topic');
