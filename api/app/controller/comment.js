@@ -29,7 +29,7 @@ class Controller extends BaseController {
     const { ctx, service } = this;
     const id = ctx.params.id;
     const model = yield service.comment.getById(id);
-    if (!ctx.user_id || ctx.user_id !== model.owner) {
+    if (!ctx.user_id || ctx.user_id !== model.owner.toString()) {
       return ctx.fail(0, '好哥哥，调用Api前请登陆下呀！');
     }
     yield service.comment.deleteById(id);

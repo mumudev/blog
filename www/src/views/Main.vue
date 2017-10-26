@@ -11,9 +11,11 @@
             <Radio label="招聘"></Radio>
             <Radio label="求职"></Radio>
           </RadioGroup>
-          <Button type="ghost" @click="getData">刷新</Button>
+          <Button type="primary" @click="getData">刷新</Button>
         </div>
-        <Button slot="extra" type="primary" v-show="session.status" @click="publicTopic">发布话题</Button>
+        <div slot="extra">
+          <Button type="primary" v-show="session.status" @click="publicTopic">发布话题</Button>
+        </div>
         <div class="container">
           <Table :show-header="false" :columns="columns" :data="data"></Table>
           <Page :total="page.total" :page-size="page.size" @on-change="changePage" show-total></Page>
@@ -21,16 +23,13 @@
       </Card>
       </Col>
       <Col span="6">
-      <Card style="margin-top:20px;" dis-hover v-if="session.status">
-        <div slot="title">
-          个人信息
-        </div>
+      <Card style="margin-top:20px;border: 0;" dis-hover v-if="session.status">
         <p>欢迎您！{{session.username}}</p>
       </Card>
-      <Card style="margin-top:20px;" dis-hover v-else>
+      <Card style="margin-top:6px;" dis-hover v-else>
         <p>请登录</p>
       </Card>
-      <Card style="margin-top:20px;" dis-hover>
+      <Card style="margin-top:6px;" dis-hover>
         <div slot="title">
           社区信息
         </div>
@@ -84,6 +83,9 @@ export default {
     moment.locale('zh-cn');
   },
   computed: {
+    haveTab() {
+      return this.tab === '全部';
+    },
     ...mapGetters(['user_type', 'session', 'locale']),
   },
   watch: {
@@ -102,38 +104,43 @@ export default {
         const { head_image_url = '/static/default_head.png' } = row.owner;
         return h('Avatar', {
           props: { shape: 'square', src: head_image_url },
-          on: {
-            click() {
-              console.log(123);
-            },
-          },
         });
       },
     });
-    columns.push(
-      {
-        title: '阅读数',
-        width: 120,
-        render: (h, params) => {
-          const row = params.row;
-          const { view_count = 0, comment_count = 0 } = row;
-          return `${comment_count}/${view_count}`;
-        },
-      });
+    columns.push({
+      title: '阅读数',
+      width: 80,
+      render: (h, params) => {
+        const row = params.row;
+        const { view_count = 0, comment_count = 0 } = row;
+        return `${comment_count}/${view_count}`;
+      },
+    });
     columns.push({
       title: '题目',
       key: 'title',
       render: (h, params) => {
         const row = params.row;
         const self = this;
-        return h('Button',
-          { props: { type: 'text' },
-            on: {
-              click() {
-                self.$router.push(`/show_topic/${row._id}`);
+        const content = [];
+        if (this.haveTab) {
+          content.push(h('Tag', row.tab));
+        }
+        content.push(
+          h(
+            'Button',
+            {
+              props: { type: 'text' },
+              on: {
+                click() {
+                  self.$router.push(`/show_topic/${row._id}`);
+                },
               },
             },
-          }, row.title);
+            row.title,
+          ),
+        );
+        return h('div', content);
       },
     });
     columns.push({
@@ -192,3 +199,4 @@ export default {
   },
 };
 </script>
+

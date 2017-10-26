@@ -6678,10 +6678,6 @@ yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
 
-zeroclipboard@^2.3.0:
-  version "2.3.0"
-  resolved "http://registry.npm.taobao.org/zeroclipboard/download/zeroclipboard-2.3.0.tgz#592ebd833a4308688b0739697d3dbf989002c9af"
-
 zrender@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/zrender/-/zrender-3.6.0.tgz#b8f4de98200c2c90785b90695680a1f12b4c71ba"

@@ -24,6 +24,7 @@
           <MenuItem name="/logout" v-if="session.status">
             退出
           </MenuItem>
+
         </div>
       </div>
     </Menu>
