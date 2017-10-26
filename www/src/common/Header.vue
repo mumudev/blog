@@ -9,19 +9,19 @@
           <MenuItem name="/main">
             首页
           </MenuItem>
-          <MenuItem name="/register" v-if="!user_status">
+          <MenuItem name="/register" v-if="!session.status">
             注册
           </MenuItem>
-          <MenuItem name="/login" v-if="!user_status">
+          <MenuItem name="/login" v-if="!session.status">
             登陆
           </MenuItem>
-          <MenuItem name="/info" v-if="user_status">
+          <MenuItem name="/info" v-if="session.status">
             消息
           </MenuItem>
-          <MenuItem name="/setting" v-if="user_status">
+          <MenuItem name="/setting" v-if="session.status">
             设置
           </MenuItem>
-          <MenuItem name="/logout" v-if="user_status">
+          <MenuItem name="/logout" v-if="session.status">
             退出
           </MenuItem>
         </div>
@@ -34,7 +34,7 @@ import { mapMutations, mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters(['user_type', 'session', 'user_status', 'locale']),
+    ...mapGetters(['user_type', 'session', 'locale']),
   },
   created() {
     this.changeHightLightTab();

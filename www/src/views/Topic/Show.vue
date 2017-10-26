@@ -28,7 +28,6 @@
         <div class="comment-content">
           {{item.content}}
         </div>
-        <hr>
       </div>
     </Card>
     <Form>
@@ -91,5 +90,9 @@ export default {
   .v-note-panel {
     box-shadow: none !important;
   }
+}
+.item {
+  border-bottom: 1px solid #eee;
+  margin-top: 5px;
 }
 </style>
