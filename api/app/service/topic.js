@@ -1,11 +1,8 @@
 "use strict";
-const ServiceExtend = require("../extend/service");
 module.exports = app => {
-  const ServiceBase = ServiceExtend(app);
-  class Service extends ServiceBase {
-    constructor(...args) {
-      super(...args);
-      this.setModel("Topic");
+  class Service extends app.BaseService {
+    get model() {
+      return this.ctx.model.Topic;
     }
     async getAll(query = {}) {
       query.status =
