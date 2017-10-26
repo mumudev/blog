@@ -1,11 +1,5 @@
 'use strict';
 
-const owners = [
-  null,
-  'class',
-  'school',
-  'company',
-];
 const defaultMsg = {
   '0': 'No permissions!',
   '-1': 'Login required!',
@@ -24,17 +18,6 @@ module.exports = {
   },
   get user_level() {
     return this.session.user && this.session.user.level;
-  },
-  setOwnOrg(query) {
-    if (!this.session.user.level) {
-      throw { code: 0, msg: 'no permission!' };
-    }
-    const org_name = owners[this.session.user.level];
-    if (org_name) {
-      query[org_name] = this.session.user.org_id;
-    } else if (this.session.user.level < 999) {
-      throw { code: 0, msg: 'you have no organization!' };
-    }
   },
   checkAuth(level) {
     if (!this.session.user || this.session.user.level < level) {
