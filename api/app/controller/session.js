@@ -8,6 +8,9 @@ class Controller extends BaseController {
     if (!user) {
       return ctx.fail(-1, 'login fail!');
     }
+    if (!user.status) {
+      return ctx.fail(-1, '账号被禁用啦');
+    }
     ctx.session.user = user;
     ctx.done(user);
   }

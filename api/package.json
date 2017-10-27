@@ -9,6 +9,7 @@
     "egg-development-proxyworker": "^1.1.1",
     "egg-logger": "^1.6.0",
     "egg-mongoose": "^2.1.0",
+    "egg-oss-sts": "^1.0.0",
     "egg-redis": "^1.0.2",
     "egg-session-redis": "^1.0.0",
     "egg-tablestore": "^2.0.2",
@@ -27,7 +28,7 @@
     "egg-bin": "^3.4.0",
     "egg-ci": "^1.7.0",
     "egg-mock": "^3.12.1",
-    "eslint": "^4.0.0",
+    "eslint": "^4.9.0",
     "eslint-config-egg": "^4.2.0",
     "webstorm-disable-index": "^1.2.0"
   },

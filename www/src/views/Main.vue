@@ -23,10 +23,10 @@
       </Card>
       </Col>
       <Col span="6">
-      <Card style="margin-top:20px;border: 0;" dis-hover v-if="session.status">
+      <Card style="margin-top:20px;border:0;" dis-hover v-if="session.status">
         <p>欢迎您！{{session.username}}</p>
       </Card>
-      <Card style="margin-top:6px;" dis-hover v-else>
+      <Card style="margin-top:20px;border:0;" dis-hover v-else>
         <p>请登录</p>
       </Card>
       <Card style="margin-top:6px;" dis-hover>
