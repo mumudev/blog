@@ -1,7 +1,7 @@
 'use strict';
 
 const defaultMsg = {
-  '0': 'No permissions!',
+  0: 'No permissions!',
   '-1': 'Login required!',
   '-2': 'Server error!',
 };

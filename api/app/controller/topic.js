@@ -11,7 +11,7 @@ class Controller extends BaseController {
   * show() {
     const { ctx, service } = this;
     const id = ctx.params.id;
-    let model = yield service.topic.getById(id);
+    const model = yield service.topic.getById(id);
     ctx.done(model);
   }
   * create() {
@@ -27,7 +27,7 @@ class Controller extends BaseController {
   * update() {
     const { ctx, service } = this;
     const id = ctx.params.id;
-    let model = yield service.topic.getById(id);
+    const model = yield service.topic.getById(id);
     if (model && model.owner && model.owner._id.toString() !== ctx.user_id) {
       return ctx.fail(0);
     }
@@ -39,7 +39,7 @@ class Controller extends BaseController {
   * destroy() {
     const { ctx, service } = this;
     const id = ctx.params.id;
-    let model = yield service.topic.getById(id);
+    const model = yield service.topic.getById(id);
     if (model.owner._id.toString() !== ctx.user_id) {
       return ctx.fail(0);
     }

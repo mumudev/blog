@@ -124,7 +124,19 @@ export default {
         const self = this;
         const content = [];
         if (this.haveTab) {
-          content.push(h('Tag', row.tab));
+          content.push(
+            h(
+              'Tag',
+              {
+                on: {
+                  'on-click': function () {
+                    console.log(123);
+                  },
+                },
+              },
+              row.tab,
+            ),
+          );
         }
         content.push(
           h(

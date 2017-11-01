@@ -1,10 +1,10 @@
 'use strict';
 
-const check = (ctx) => {
+const check = ctx => {
   return true;
 };
 module.exports = (options, app) => {
-  return async function (ctx, next) {
+  return async function(ctx, next) {
     if (check(ctx)) {
       return await next();
     }

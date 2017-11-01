@@ -1,9 +1,14 @@
+'use strict';
+
 const BaseController = require('egg').Controller;
 class Controller extends BaseController {
   * create() {
     const { ctx, service } = this;
     // 校验参数
-    ctx.validate({ username: { type: 'string' }, password: { type: 'string' } });
+    ctx.validate({
+      username: { type: 'string' },
+      password: { type: 'string' },
+    });
     const user = yield service.user.login(ctx.request.body);
     if (!user) {
       return ctx.fail(-1, 'login fail!');

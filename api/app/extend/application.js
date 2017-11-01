@@ -14,7 +14,9 @@ module.exports = {
       }
       async updateById(id, body) {
         delete body._id;
-        const model = await this.model.findByIdAndUpdate(id, body, { new: true });
+        const model = await this.model.findByIdAndUpdate(id, body, {
+          new: true,
+        });
         return model;
       }
       async deleteById(id) {
@@ -34,5 +36,5 @@ module.exports = {
       }
     }
     return ServiceBase;
-  }
+  },
 };
