@@ -14,4 +14,4 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
-index.js
+/index.js
