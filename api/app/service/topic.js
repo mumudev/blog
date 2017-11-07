@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 module.exports = app => {
   class Service extends app.BaseService {
     get model() {
@@ -6,7 +6,7 @@ module.exports = app => {
     }
     async getAll(query = {}) {
       query.status =
-        query.status === undefined || query.status === "" ? true : query.status;
+        query.status === undefined || query.status === '' ? true : query.status;
       let { limit = 10, page = 1 } = query;
       page = Number.parseInt(page);
       limit = Number.parseInt(limit);
@@ -15,7 +15,7 @@ module.exports = app => {
       const models = await this.model.paginate(query, {
         select: { title: 1, view_count: 1, comment_count: 1, like_count: 1, owner: 1, tab: 1, updatedAt: 1, createdAt: 1 },
         populate: [
-          { path: "owner", select: "username  head_image_url" },
+          { path: 'owner', select: 'username  head_image_url' },
         ],
         sort: { createdAt: -1 },
         page,
@@ -27,11 +27,11 @@ module.exports = app => {
     async getById(id) {
       await this.updateById(id, { $inc: { view_count: 1 } });
       const topic = await this.model.findById(id).populate([
-        { path: "owner", select: "username  head_image_url" },
+        { path: 'owner', select: 'username  head_image_url' },
       ]);
       const topic_id = topic._id;
       const comments = await this.ctx.model.Comment.find({ topic_id }, { topic_id: 0 }).populate([
-        { path: "owner", select: "username  head_image_url" },
+        { path: 'owner', select: 'username  head_image_url' },
       ]);
       topic.comment = comments;
       return topic;

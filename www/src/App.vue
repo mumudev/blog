@@ -2,9 +2,9 @@
   <div id="app">
     <MHeader></MHeader>
     <div class="main">
-        <router-view></router-view>
+      <router-view></router-view>
     </div>
-      <MFooter></MFooter>
+    <MFooter></MFooter>
   </div>
 </template>
 

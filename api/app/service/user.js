@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 module.exports = app => {
   class Service extends app.BaseService {
     get model() {
