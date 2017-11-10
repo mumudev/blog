@@ -146,6 +146,32 @@ ajv@^5.2.0:
     json-schema-traverse "^0.3.0"
     json-stable-stringify "^1.0.1"
 
+ali-oss@^4.11.2:
+  version "4.11.2"
+  resolved "http://registry.npm.taobao.org/ali-oss/download/ali-oss-4.11.2.tgz#55a748fe8216dcf82aa8bfd539d40e3463a8ca2f"
+  dependencies:
+    address "^1.0.0"
+    agentkeepalive "^2.1.1"
+    bowser "^1.6.0"
+    co "^4.6.0"
+    co-defer "^1.0.0"
+    co-gather "^0.0.1"
+    copy-to "^2.0.1"
+    dateformat "^2.0.0"
+    debug "^2.2.0"
+    destroy "^1.0.4"
+    end-or-error "^1.0.1"
+    get-ready "^1.0.0"
+    humanize-ms "^1.2.0"
+    is-type-of "^1.0.0"
+    merge-descriptors "^1.0.1"
+    mime "^1.3.4"
+    platform "^1.3.1"
+    sdk-base "^2.0.1"
+    urllib "^2.17.1"
+    utility "^1.8.0"
+    xml2js "^0.4.16"
+
 ali-oss@^4.9.0:
   version "4.11.0"
   resolved "http://registry.npm.taobao.org/ali-oss/download/ali-oss-4.11.0.tgz#eff2a05f5f5f73bf6d7946a3060bb692c33e34bc"
