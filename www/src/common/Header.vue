@@ -15,6 +15,9 @@
           <MenuItem name="/login" v-if="!session.status">
             登陆
           </MenuItem>
+          <MenuItem name="/bot" v-if="session.status">
+            微信机器人
+          </MenuItem>
           <MenuItem name="/info" v-if="session.status">
             消息
           </MenuItem>

@@ -16,6 +16,9 @@ module.exports = {
   get user_id() {
     return this.session.user && this.session.user._id;
   },
+  get userId() {
+    return this.session.user && this.session.user._id;
+  },
   get user_level() {
     return this.session.user && this.session.user.level;
   },

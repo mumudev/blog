@@ -6,6 +6,7 @@ import TopicEdit from '@/views/Topic/Edit';
 import TopicShow from '@/views/Topic/Show';
 
 import Main from '@/views/Main';
+import Bot from '@/views/Bot';
 import Info from '@/views/Info';
 import Setting from '@/views/Setting';
 import Login from '@/views/Login';
@@ -18,6 +19,7 @@ export default new Router({
   routes: [
     { path: '/', component: Main },
     { path: '/main', component: Main },
+    { path: '/Bot', component: Bot },
     { path: '/add_topic', component: TopicAdd },
     { path: '/show_topic/:id', component: TopicShow },
     { path: '/edit_topic/:id', component: TopicEdit },

@@ -129,7 +129,7 @@ export default {
               'Tag',
               {
                 on: {
-                  'on-click': function () {
+                  'on-click': function onClick() {
                     console.log(123);
                   },
                 },
