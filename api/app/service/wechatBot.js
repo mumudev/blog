@@ -54,6 +54,9 @@ module.exports = app => {
       userId = userId.toString();
       const bot = bot_list[userId];
       bot.on('message', async msg => {
+        if (msg.FromUserName.startsWith('@@')) {
+          return;
+        }
         switch (msg.MsgType) {
           case bot.CONF.MSGTYPE_TEXT:
             for (let index = 0; index < messages.length; index++) {
