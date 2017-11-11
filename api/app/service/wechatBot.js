@@ -14,7 +14,7 @@ module.exports = app => {
         const data = { isLogin: false };
         if (bot_list[user_id]) {
           data.isLogin = bot_list[user_id].state == bot_list[user_id].CONF.STATE.login;
-          if (!data.isLogin) {
+          if (bot_list[user_id].state == bot_list[user_id].CONF.STATE.logout) {
             bot_list[user_id] = null;
           } else {
             data.uuid = bot_list[user_id].uuid;
