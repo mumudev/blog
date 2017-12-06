@@ -53,6 +53,7 @@ module.exports = app => {
     buildAutoReply(userId, messages) {
       userId = userId.toString();
       const bot = bot_list[userId];
+      bot.removeAllListeners('message');
       bot.on('message', async msg => {
         if (msg.FromUserName.startsWith('@@')) {
           return;
